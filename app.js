@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 const express = require('express');
 const app = express();
 const http    = require("http");
+const validator = require('validator');
 
 //To be able to get the json format data in the post request
 app.use(bodyParser.json());
@@ -33,14 +34,14 @@ app.get('/', (req, res) => {
 
 //Get users simply returns all the users in the system.
 app.get('/users',function(req,res) {
-  console.log("Get: ",JSON.stringify(data));
+  // console.log("Get: ",JSON.stringify(data));
   res.send(JSON.stringify(data));
 });
 
 //Post request adds the user on the server.
 app.post('/user',function(req, res) {
   var user = req.body;
-  console.log("Post: ", user);
+  // console.log("Post: ", user);
   //Error message can be drilled down to each field, with seperate checks,
   //But I wanted to keep the error message as simple as possible to
   //not give more information to hackers.
@@ -52,8 +53,25 @@ app.post('/user',function(req, res) {
   }
   else
   {
-    data.users.push(user);
-    res.status(200).send("User Successfully added.");
+    var firstName = user["firstName"].trim();
+    var lastName = user["lastName"].trim();
+    var email = user["email"].trim();
+    if( (validator.isEmpty(firstName))
+     || (validator.isEmpty(lastName)) ){
+      res.status(400).send("Empty field.");
+    }
+    else if (!validator.isEmail(email)) {
+      res.status(400).send("Invalid email.");
+    }
+    else{
+      var trimmedUser = {
+        "firstName" : firstName,
+        "lastName" : lastName,
+        "email" : email
+      };
+      data.users.push(trimmedUser);
+      res.status(200).send("User Successfully added.");
+    }
   }
 });
 
