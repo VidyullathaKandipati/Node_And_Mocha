@@ -1,3 +1,7 @@
+/**************************************************************************
+*********************   MAIN file, Server and Router   ********************
+**************************************************************************/
+
 //For starting a server
 var bodyParser = require('body-parser')
 const express = require('express');
