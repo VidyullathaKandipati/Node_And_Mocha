@@ -67,6 +67,7 @@ app.post('/user',function(req, res) {
       res.status(400).send("Invalid email.");
     }
     else{
+      //All good. Add the trimmed fields to the data.
       var trimmedUser = {
         "firstName" : firstName,
         "lastName" : lastName,
