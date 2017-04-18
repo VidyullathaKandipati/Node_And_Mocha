@@ -124,7 +124,7 @@ describe("USER CRUD. Error cases:", function() {
     });
 
     // Adding to the list of users with invalid email.
-    it('should not add the given user in the system as it is invalid email',function(done){
+    it('should not add the given user in the system as it is invalid email.',function(done){
       var user = { "firstName": "Test",
                     "lastName": "Last",
                     "email": "email@emailcom" };
@@ -140,7 +140,7 @@ describe("USER CRUD. Error cases:", function() {
     });
 
     // Adding to the list of users with empty firstName.
-    it('should not add the given user in the system as it is empty firstName',function(done){
+    it('should not add the given user in the system as it is empty firstName.',function(done){
       var user = { "firstName": " ",
                     "lastName": "Last",
                     "email": "email@email.com" };
@@ -156,7 +156,7 @@ describe("USER CRUD. Error cases:", function() {
     });
 
     // Adding to the list of users with empty lastName.
-    it('should not add the given user in the system as it is empty lastName',function(done){
+    it('should not add the given user in the system as it is empty lastName.',function(done){
       var user = { "firstName": "Test",
                     "lastName": "",
                     "email": "email@email.com" };
@@ -172,7 +172,7 @@ describe("USER CRUD. Error cases:", function() {
     });
 
     // Adding to the list of users with empty email.
-    it('should not add the given user in the system as it is empty email',function(done){
+    it('should not add the given user in the system as it is empty email.',function(done){
       var user = { "firstName": "Test",
                     "lastName": "Last",
                     "email": "   " };
@@ -188,7 +188,7 @@ describe("USER CRUD. Error cases:", function() {
     });
 
     // Adding to the list of users with invalid body format.
-    it('should not add the given user in the system as it is invalid format',function(done){
+    it('should not add the given user in the system as it is invalid format.',function(done){
       var user = '{ "firstName": "Test", "lastName": "Last", "email": "email@email.com" }';
 
       //Post request to add user.
