@@ -25,6 +25,7 @@ Error cases:
     ✓ should not add the given user in the system as it is invalid email
     ✓ should not add the given user in the system as it is empty firstName
     ✓ should not add the given user in the system as it is empty lastName
+    ✓ should not add the given user in the system as it is empty email
     ✓ should not add the given user in the system as it is invalid format
 
 ## Contact:

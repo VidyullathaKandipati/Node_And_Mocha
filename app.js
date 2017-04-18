@@ -53,13 +53,16 @@ app.post('/user',function(req, res) {
   }
   else
   {
+    //Trimming the user fields to remove any white spaces
     var firstName = user["firstName"].trim();
     var lastName = user["lastName"].trim();
     var email = user["email"].trim();
+    //Checking if fristName and lastName are empty
     if( (validator.isEmpty(firstName))
      || (validator.isEmpty(lastName)) ){
       res.status(400).send("Empty field.");
     }
+    //Checking the validity of email
     else if (!validator.isEmail(email)) {
       res.status(400).send("Invalid email.");
     }

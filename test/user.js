@@ -143,7 +143,7 @@ describe("USER CRUD. Error cases:", function() {
     it('should not add the given user in the system as it is empty firstName',function(done){
       var user = { "firstName": " ",
                     "lastName": "Last",
-                    "email": "email@emailcom" };
+                    "email": "email@email.com" };
 
       //Post request to add user.
       chai.request(app)
@@ -159,7 +159,23 @@ describe("USER CRUD. Error cases:", function() {
     it('should not add the given user in the system as it is empty lastName',function(done){
       var user = { "firstName": "Test",
                     "lastName": "",
-                    "email": "email@emailcom" };
+                    "email": "email@email.com" };
+
+      //Post request to add user.
+      chai.request(app)
+      .post('/user')
+      .send(user)
+      .end(function(err, res){
+        expect(res.status).to.equal(400);
+        done();
+      });
+    });
+
+    // Adding to the list of users with empty email.
+    it('should not add the given user in the system as it is empty email',function(done){
+      var user = { "firstName": "Test",
+                    "lastName": "Last",
+                    "email": "   " };
 
       //Post request to add user.
       chai.request(app)
