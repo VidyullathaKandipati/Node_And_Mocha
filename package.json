@@ -1,0 +1,26 @@
+{
+  "name": "user_crud",
+  "version": "1.0.0",
+  "description": "Code test with Node.js and TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "keywords": [
+    "node.js",
+    "TDD",
+    "javascript",
+    "mocha"
+  ],
+  "author": "Vidyullatha Kandipati",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0",
+    "request": "^2.81.0",
+    "superagent": "^3.5.2"
+  }
+}
